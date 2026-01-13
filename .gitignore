@@ -75,4 +75,4 @@ venv.bak/
 .DS_Store
 Thumbs.db
 
-training_output.txt
+output.txt
