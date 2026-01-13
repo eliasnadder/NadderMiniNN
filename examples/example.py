@@ -9,16 +9,11 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-from NadderMiniNN.classes.Dense import Dense
-
-from NadderMiniNN.classes.Activations.Sigmoid import Sigmoid
-from NadderMiniNN.classes.Activations.Relu import Relu
-from NadderMiniNN.classes.Activations.BatchNormalization import BatchNormalization
-from NadderMiniNN.classes.Activations.SoftmaxWithLoss import SoftmaxWithLoss
-
-from NadderMiniNN.neural_network import NeuralNetwork
-from NadderMiniNN.classes.Optimizers.Adam import Adam
-from NadderMiniNN.trainer import Trainer
+# Import from YourLastNameMiniNN package
+from NadderMiniNN import (
+    Dense, Sigmoid, Relu, BatchNormalization, SoftmaxWithLoss,
+    NeuralNetwork, Adam, Trainer
+)
 
 # Load and prepare data
 

@@ -2,5 +2,8 @@ include README.md
 include LICENSE
 include requirements.txt
 recursive-include NadderMiniNN *.py
+recursive-include NadderMiniNN/classes *.py
+recursive-include NadderMiniNN/classes/Activations *.py
+recursive-include NadderMiniNN/classes/Optimizers *.py
 recursive-include examples *.py
 recursive-include tests *.py

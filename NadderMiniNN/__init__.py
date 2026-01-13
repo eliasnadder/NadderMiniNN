@@ -6,39 +6,41 @@ Designed for educational purposes to understand how neural networks work interna
 """
 
 __version__ = '1.0.0'
-__author__ = 'Nadder'
+__author__ = 'Elias Nadder'
 
-# Import main components
-from .classes import (Layer, Dense)
+# Import Layer base class
+from .classes.Layer import Layer
+from .classes.Dense import Dense
 
-from .classes.Activations import (
-    Linear,
-    Relu,
-    Sigmoid,
-    Tanh,
-    Dropout,
-    BatchNormalization,
-    MeanSquaredError,
-    SoftmaxWithLoss
-)
+# Import Activations
+from .classes.Activations.Linear import Linear
+from .classes.Activations.Relu import Relu
+from .classes.Activations.Sigmoid import Sigmoid
+from .classes.Activations.Tanh import Tanh
+from .classes.Activations.Dropout import Dropout
+from .classes.Activations.BatchNormalization import BatchNormalization
+from .classes.Activations.MeanSquaredError import MeanSquaredError
+from .classes.Activations.SoftmaxWithLoss import SoftmaxWithLoss
 
-from .classes.Optimizers import (
-    Optimizer,
-    SGD,
-    Momentum,
-    AdaGrad,
-    Adam,
-    RMSprop
-)
+# Import Optimizers
+from .classes.Optimizers.Optimizer import Optimizer
+from .classes.Optimizers.SGD import SGD
+from .classes.Optimizers.Momentum import Momentum
+from .classes.Optimizers.AdaGrad import AdaGrad
+from .classes.Optimizers.Adam import Adam
+from .classes.Optimizers.RMSprop import RMSprop
 
+# Import Core components
 from .neural_network import NeuralNetwork
 from .trainer import Trainer
 from .hyperparameter_tuning import HyperparameterTuning
 
 __all__ = [
-    # Layers
+    # Base classes
     'Layer',
     'Dense',
+    
+    # Activations
     'Linear',
     'Relu',
     'Sigmoid',
@@ -47,7 +49,7 @@ __all__ = [
     'BatchNormalization',
     'MeanSquaredError',
     'SoftmaxWithLoss',
-
+    
     # Optimizers
     'Optimizer',
     'SGD',
@@ -55,7 +57,7 @@ __all__ = [
     'AdaGrad',
     'Adam',
     'RMSprop',
-
+    
     # Core components
     'NeuralNetwork',
     'Trainer',
