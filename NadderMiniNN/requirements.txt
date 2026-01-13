@@ -1,0 +1,10 @@
+# Required packages for YourLastNameMiniNN
+
+# Core requirement
+numpy>=1.19.0
+
+# Optional: For examples only
+scikit-learn>=0.24.0  # For loading example datasets and data preprocessing
+
+# Optional: For visualization (not used in core library)
+matplotlib>=3.3.0  # If you want to add visualization features later
