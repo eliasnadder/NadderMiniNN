@@ -9,7 +9,7 @@ __version__ = '1.0.0'
 __author__ = 'Elias Nadder'
 
 # Import Layer base class
-from .classes.Layer import Layer
+from .classes.layer1 import Layer
 from .classes.Dense import Dense
 
 # Import Activations

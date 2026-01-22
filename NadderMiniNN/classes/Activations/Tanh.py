@@ -1,8 +1,11 @@
 import numpy as np
-from ..Layer import Layer
+from ..layer1 import Layer1
+
+# بتخلي التمركز بين 1 و -1
+# بتعالج شوي مشكلة التلاشي للمشتقات
 
 
-class Tanh(Layer):
+class Tanh(Layer1):
     """Tanh activation function"""
 
     def __init__(self):
@@ -10,7 +13,8 @@ class Tanh(Layer):
         self.out = None
 
     def forward(self, x):
-        self.out = np.tanh(x)
+        # self.out = np.tanh(x)
+        self.out = ( 2 / ( 1 + np.exp(-2 * x)) ) - 1
         return self.out
 
     def backward(self, dout):

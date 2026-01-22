@@ -1,4 +1,4 @@
-class Layer:
+class Layer1:
     """Base class for all layers"""
 
     def __init__(self):

@@ -1,7 +1,11 @@
-from ..Layer import Layer
+from ..layer1 import Layer1
+
+# هي الدالة هيي يلي بتعدم القيم السالبة و بتترك القيم الموجبة
+# هون هيي بتوفع بمشكلة Dying
+# لانو بتعدم عصبونات
 
 
-class Relu(Layer):
+class Relu(Layer1):
     """ReLU activation function"""
 
     def __init__(self):

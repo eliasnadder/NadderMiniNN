@@ -1,4 +1,4 @@
-from ..Layer import Layer
+from ..layer1 import Layer
 
 
 class Linear(Layer):

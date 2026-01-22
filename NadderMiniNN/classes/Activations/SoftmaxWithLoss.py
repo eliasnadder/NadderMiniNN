@@ -1,15 +1,35 @@
 import numpy as np
 
-from ..Layer import Layer
+from ..layer2 import Layer2
+
+# Output and Loss
+# هلا نحنا عنا المخرجات اما تصنيفات ثنائية او اكثر
+# هلا نحنا عم نستخدم السوفت ماكس منشان نعمل الخرج ك احتمالات
+# و بعد ما نشوف الاحتمالات منعرف شو الخرج و منشوف الخسارة بالنسبة لهاد الخرج يلي عطيتو الشبكة
+# و من اجل التصنيفات الثنائية ممكن سبغمويد
+# هلا لنحسب الخسارة نحنا عنا cross entropy , mean squared , binary cross entropy
+# هلا مع المشاكل التصنيفية cross entropy انسب مع الاحتمالات
+# لانو لما بطالع الخرج بقدر يعاقب عقاب شديد لما بكون النموذج واثق بالخطأ
+# منلاحظ الفرق بالعقابات
+# اما Mean هون مافي منطق لانو العقاب على الاجابة الصح ما بيخف كتير عن العقاب للاجابة الخطأ
+# لهيك المشاكل الخطية بتناسبها اكتر Mean
+# منلاحظ انو نحن عن ندمج السوفت ماكس مع cross entro
+# sigmoid with binary cross
+# لانو هيك بصيروا بطبقة وحدة منخفف ذاكرة بدال ما خزن مخرجات السوفت ماكس لحال و بعدا الخسارة
+# بخفف ذاكرة بصير اسرع و اقل اخطاء
+# و طبعا منلاحظ دالة backward يلي فيه بدنا نبلش نرجع لورا
+# رح نستق دالة الهسارة بالنسبة ل x و نرجع بالطبقات لورا
+# لحتى نشتق دالة الخسارة بالنسبة للاوزان و الانحيازات
 
 
-class SoftmaxWithLoss(Layer):
+class SoftmaxWithLoss(Layer2):
     """Softmax activation with Cross Entropy loss"""
 
     def __init__(self):
         super().__init__()
         self.y = None
         self.t = None
+        self.loss = None
 
     def forward(self, x, t):
         self.t = t
@@ -18,8 +38,8 @@ class SoftmaxWithLoss(Layer):
         if self.t.size == self.y.size:
             self.t = self.t.argmax(axis=1)
 
-        loss = self._cross_entropy_error(self.y, self.t)
-        return loss
+        self.loss = self._cross_entropy_error(self.y, self.t)
+        return self.loss
 
     def backward(self, dout=1):
         batch_size = self.t.shape[0]

@@ -1,8 +1,8 @@
 import numpy as np
-from ..Layer import Layer
+from ..layer1 import Layer1
 
 
-class BatchNormalization(Layer):
+class BatchNormalization(Layer1):
     """Batch Normalization layer"""
 
     def __init__(self, input_size, momentum=0.9, epsilon=1e-8):
@@ -21,6 +21,11 @@ class BatchNormalization(Layer):
         self.train_mode = True
 
     def forward(self, x):
+        if self.running_mean is None:
+            N, D = x.shape
+            self.running_mean = np.zeros(D)
+            self.running_var = np.zeros(D)
+            
         if self.train_mode:
             mu = x.mean(axis=0)
             xc = x - mu

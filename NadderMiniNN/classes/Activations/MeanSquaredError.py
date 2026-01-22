@@ -1,20 +1,21 @@
 import numpy as np
-from ..Layer import Layer
+from ..layer2 import Layer2
 
 
-class MeanSquaredError(Layer):
+class MeanSquaredError(Layer2):
     """Mean Squared Error loss"""
 
     def __init__(self):
         super().__init__()
         self.y = None
         self.t = None
+        self.loos = None
 
     def forward(self, x, t):
         self.y = x
         self.t = t
-        loss = 0.5 * np.sum((self.y - self.t)**2) / x.shape[0]
-        return loss
+        self.loss = 0.5 * np.sum((self.y - self.t)**2) / x.shape[0]
+        return self.loss
 
     def backward(self, dout=1):
         batch_size = self.t.shape[0]

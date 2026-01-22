@@ -1,10 +1,9 @@
 import numpy as np
 
-from NadderMiniNN.classes.Layer import Layer
+from NadderMiniNN.classes.layer1 import Layer1
 
 
-
-class Dense(Layer):
+class Dense(Layer1):
     """Fully connected layer (Affine transformation)"""
 
     def __init__(self, input_size, output_size, weight_init_std=0.01):

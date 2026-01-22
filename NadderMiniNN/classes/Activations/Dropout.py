@@ -1,8 +1,8 @@
 import numpy as np
-from ..Layer import Layer
+from ..layer1 import Layer1
 
 
-class Dropout(Layer):
+class Dropout(Layer1):
     """Dropout layer for regularization"""
 
     def __init__(self, dropout_ratio=0.5):

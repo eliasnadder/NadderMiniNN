@@ -1,8 +1,13 @@
 import numpy as np
-from ..Layer import Layer
+from ..layer1 import Layer1
+
+# هون نحنا عنا مشكلة Vanishing
+# القيم بتصير بين ال 0 و 1
+# لانو عند المشتقات الكبير و المشتقات الصغيرةبتصير القيم شبه ثابته و هيك المشتقات معرضة للاختفاء
+# ببطئ التعلم لانو غير متمركز حول الصغر و القيم موجبة
 
 
-class Sigmoid(Layer):
+class Sigmoid(Layer1):
     """Sigmoid activation function"""
 
     def __init__(self):
