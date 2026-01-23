@@ -1,7 +1,7 @@
-from ..layer1 import Layer
+from ..layer1 import Layer1
 
 
-class Linear(Layer):
+class Linear(Layer1):
     """Linear activation (identity function)"""
 
     def forward(self, x):

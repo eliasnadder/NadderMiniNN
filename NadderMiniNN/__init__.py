@@ -3,13 +3,15 @@ NadderMiniNN - A mini neural network library
 
 A simple neural network library built from scratch using only NumPy.
 Designed for educational purposes to understand how neural networks work internally.
+Now includes LSTM for time series prediction!
 """
 
-__version__ = '1.0.0'
+__version__ = '1.1.0'
 __author__ = 'Elias Nadder'
 
-# Import Layer base class
-from .classes.layer1 import Layer
+# Import Layer base classes
+from .classes.layer1 import Layer1
+from .classes.layer2 import Layer2
 from .classes.Dense import Dense
 
 # Import Activations
@@ -21,6 +23,7 @@ from .classes.Activations.Dropout import Dropout
 from .classes.Activations.BatchNormalization import BatchNormalization
 from .classes.Activations.MeanSquaredError import MeanSquaredError
 from .classes.Activations.SoftmaxWithLoss import SoftmaxWithLoss
+from .classes.Activations.lstm import LSTM
 
 # Import Optimizers
 from .classes.Optimizers.Optimizer import Optimizer
@@ -37,9 +40,10 @@ from .hyperparameter_tuning import HyperparameterTuning
 
 __all__ = [
     # Base classes
-    'Layer',
+    'Layer1',
+    'Layer2',
     'Dense',
-    
+
     # Activations
     'Linear',
     'Relu',
@@ -49,7 +53,8 @@ __all__ = [
     'BatchNormalization',
     'MeanSquaredError',
     'SoftmaxWithLoss',
-    
+    'LSTM',
+
     # Optimizers
     'Optimizer',
     'SGD',
@@ -57,7 +62,7 @@ __all__ = [
     'AdaGrad',
     'Adam',
     'RMSprop',
-    
+
     # Core components
     'NeuralNetwork',
     'Trainer',
